@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const app = express();
-const port = 8000;
+const port = 80;
 
 app.use(cors());
 app.use(express.json());
@@ -61,6 +61,8 @@ app.get('/bfhl', (req, res) => {
         operation_code: 1
     });
 });
+
+app.use("/", express.static('build'));
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
